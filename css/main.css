@@ -56,7 +56,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-image: url("../img/page-background.jpg");
-  background-repeat: repeat;
+  background-size: 100% auto;
   position: relative; /* ! Position is used here for Nav only */
   width: initial;
 }
