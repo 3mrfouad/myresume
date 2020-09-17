@@ -61,7 +61,7 @@ getInTouchForm.addEventListener("submit", (event) => {
         "\13\13Message:\13" +
         `${message.value}`
     );
-    const myEmail = "info@noemail.com";
+    const myEmail = "3mrfouad@gmail.com";
     window.location.href = `mailto:${myEmail}?subject=${subject.value}&body=${emailMessageMod}`;
   }
 });
