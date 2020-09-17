@@ -1,0 +1,1069 @@
+/*=============================================
+=      Front-End Project DOCSTRING            =
+=============================================*/
+
+/* Title: Front-End Project
+Purpose:Resume with Validating Contact Form
+Author: Amr Fouad
+Date of last edit: september 08, 2020 8:59 am
+ */
+
+/*=====  End of Section comment block  ======*/
+
+/*=============================================
+    HTML CSS RESET | IMPORT OTHER CSS FILES
+=============================================*/
+@import url("normalize.css");
+/**
+ * Citation: Borrowed code to reset browsers defaults.
+ * Source: https://necolas.github.io/normalize.css/
+ * Reason: Common practice to use one of the popular browsers reset .css files available online
+ * More details: The normalize.css file reset the styling so that differences due to various
+ * browsers rendering techniques don't impact how my webpage look like.
+ */
+@import url("all.css");
+/**
+ * Citation: Css code that must be in the project folders per FontAwesome documentation.
+ * Source: https://fontawesome.com
+ * Reason: Import FontAwesome icons into the project to fulfill the requirements/challenges
+ */
+
+/*=============================================
+                   FONT FACE                  =
+=============================================*/
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf");
+  src: url("../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+/*=============================================
+=             HTML SECTION                    =
+=============================================*/
+html {
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+/*=============================================
+=             BODY SECTION                    =
+=============================================*/
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../img/page-background.jpg");
+  background-repeat: repeat;
+  position: relative; /* ! Position is used here for Nav only */
+  width: initial;
+}
+/*=============================================
+=             HEADER SECTION                  =
+=============================================*/
+i {
+  font-size: inherit;
+}
+h1 {
+  background: #adadad;
+  color: #1c110b;
+  font-weight: 700;
+  text-align: center;
+  font-family: fantasy;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 36px;
+  line-height: 1em;
+  width: 100%;
+}
+header {
+  background-image: url("../img/header-background.png");
+  opacity: 0.7;
+  width: 100%;
+}
+.floating-hello, .floating-cup{
+  display: none;
+}
+/*=============================================
+=             MAIN SECTION                    =
+=============================================*/
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  order: 2;
+}
+.bold-text-emphasis {
+  font-weight: 700;
+  color: #2b0202 !important;
+  font-size: 1.25em;
+  opacity: 0.79;
+  text-shadow: 1px 1px 4px #1c110b60;
+}
+.bold-text {
+  color: #2b0202;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.italic-text {
+  font-style: italic;
+  font-size: 0.9em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/*=============================================
+=            POP-UP NAV MENU                 =
+=============================================*/
+.popupbtn,
+.popup,
+.popup-content {
+  position: fixed; /* ! Position is used here for Nav only */
+  bottom: 60px;
+  right: 15px;
+  background: #e1d2a5;
+  z-index: 1;
+}
+.popupbtn {
+  opacity: 0.7;
+  bottom: 5px;
+  color: #1c110b;
+  cursor: pointer;
+  height: max-content;
+  font-size: 18px;
+  border: none;
+  padding: 8px;
+  border-radius: 10%;
+}
+.popup {
+  display: block;
+}
+.popup-content {
+  display: none;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px #1c110b;
+}
+.popup-content a {
+  color: #1c110b;
+  font-weight: 700;
+  padding: 5%;
+  text-decoration: none;
+  display: block;
+}
+.popup-content a:hover {
+  background: #ddd;
+}
+.popup:hover .popup-content,
+.popup:active .popup-content {
+  display: block;
+}
+.popupbtn:hover,
+.popupbtn:active {
+  background: #1c110b;
+  color: #d6b865;
+  opacity: 0.8;
+}
+
+/*=============================================
+=           RESUME SECTIONS COMMON            =
+=============================================*/
+.container {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  margin: 2%;
+}
+.accordion-btn {
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  text-align: left;
+  margin: 0.25em 0.25em 0 0.25em;
+  padding: 2%;
+  text-transform: uppercase;
+  background: #ffffff8c;
+  color: #3d2112;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 650ms;
+}
+/* accordion */
+.accordion-btn::after {
+  content: "\25b4";
+  float: right;
+  transform: scale(1.5);
+}
+/* accordion */
+.accordion-btn-active {
+  background: #1c110b;
+  color: #ffffff8c;
+}
+/* accordion */
+.accordion-btn-active::after {
+  content: "\25be";
+}
+.container .section-content {
+  margin: 0 0.25em 0.25em 0.25em;
+  padding: 2%;
+  /* accordion */
+  display: flex;
+  flex-direction: column;
+  background: #fae6bbde;
+  color: #333333;
+}
+/* accordion */
+.accordion-btn-active + .section-content {
+  display: none;
+}
+.accordion-btn:hover {
+  background: #1c110b;
+  color: #ffffff8c;
+}
+
+/*=============================================
+=         SUB-CONTAINERS STYLING               =
+=    USED IN EDUCATION, CERTIFICATION,        =
+=      VOLUNTEERING, TECHNICAL SKILLS          =
+==============================================*/
+.sub-container {
+  display: flex;
+  flex-direction: row;
+  padding: 2.5% 0 2.5% 2.5%;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.sub-container p {
+  margin: 0 1% 0 5%;
+  font-size: 14px;
+  width: 100%;
+  line-height: 1.25em;
+}
+.sub-container ul {
+  margin: 0 1% 0 5%;
+  font-size: 14px;
+  width: 100%;
+  list-style-type: square;
+  list-style-position: inside;
+  line-height: 1.25em;
+}
+.sub-container img {
+  width: 50px;
+  height: auto;
+  max-height: 100px;
+  max-width: 100px;
+}
+
+/*=============================================
+=               ABOUT SECTION                 =  
+=             OBJECTIVE SECTION               = 
+=         CORE COMPETENCIES SECTION           =
+=============================================*/
+.about,
+.objective,
+.core-competencies {
+  padding: 2.5%;
+}
+.about p,
+.objective p {
+  padding: 0 0 2.5% 0;
+  line-height: 1.25em;
+}
+.core-competencies p {
+  padding: 0 0 2.5% 0;
+}
+.core-competencies ul {
+  padding: 0 1% 2.5% 2%;
+  list-style-type: square;
+  list-style-position: inside;
+  line-height: 1.25em;
+  letter-spacing: 0.1em;
+}
+
+/*=============================================
+=         EMPLOYMENT SECTION                  =
+=============================================*/
+.employment-duties ul {
+  padding: 0 2% 0 2%;
+  font-size: 14px;
+  list-style-type: square;
+  list-style-position: inside;
+  line-height: 1.5em;
+}
+
+/*=============================================
+=     INTERNATIONAL EXPERIENCE SECTION        =
+=============================================*/
+.int-experience img {
+  width: 100%;
+  height: auto;
+}
+
+/*=============================================
+=            TECHNICAL SKILLS SECTION         =
+=============================================*/
+.beginner-level {
+  width: calc(100% / 2.3);
+  background: #ff5959;
+  color: #ffffff;
+  padding: 2.5%;
+  font-size: 14px;
+  font-weight: 700;
+}
+.intermediate-level {
+  width: calc(200% / 3);
+  background: #ffa500;
+  color: #ffffff;
+  padding: 2.5%;
+  font-size: 14px;
+  font-weight: 700;
+}
+.advanced-level {
+  width: 90%;
+  background: #4caf50;
+  color: #ffffff;
+  padding: 2.5%;
+  font-size: 14px;
+  font-weight: 700;
+}
+.skill-level-container {
+  width: 50%;
+}
+.skills-bar {
+  background: #ffffb6;
+}
+.skill-level-container p {
+  margin: 0;
+  padding: 7.5% 0 7.5% 2.5%;
+  font-weight: 700;
+}
+.skills-logos {
+  width: 45%;
+  margin:0;
+}
+.section-content .grey-bk {
+  background: #eee5b6;
+}
+
+/*=============================================
+=           SLIDE SHOW SECTION STYLING        =
+=      USED IN EMPLOYMENT, TESTIMONIAL AND   =
+=                  PORTFOLIO                  =
+=============================================*/
+.section-content {
+  width: fit-content;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+/* Slideshow container */
+.slideshow-container {
+  position: relative; /* ! Position is un-avoidable not to complicate the slide show code */
+  margin: auto;
+  width: 100%;
+}
+/* Hide the images by default */
+.mySlides,
+.mySlides-emp,
+.mySlides-portfolio {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5%;
+  height: 650px;
+}
+/* Next & previous buttons */
+.prev,
+.next,
+.prev-emp,
+.next-emp,
+.prev-portfolio,
+.next-portfolio {
+  cursor: pointer;
+  position: absolute; /* ! Position is un-avoidable not to complicate the slide show code */
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 8px;
+  color: #2b020271;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+/* Position the "next button" to the right */
+.next,
+.next-emp,
+.next-portfolio {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover,
+.prev-emp:hover,
+.next-emp:hover,
+.prev-portfolio:hover,
+.next-portfolio:hover {
+  background: #00000044;
+}
+/* The dots/bullets/indicators */
+.dot,
+.dot-emp,
+.dot-portfolio {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background: #3d2112be;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background 0.6s ease;
+}
+.active,
+.dot:hover,
+.dot-emp:hover,
+.dot-portfolio:hover {
+  /*background: #717171;*/
+  background: #ffffff;
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.attestant,
+.employment-history {
+  display: flex;
+  flex-direction: row;
+  padding: 0 0 4% 0;
+}
+.avatar,
+.employer-logo {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  padding: 0 0 0 2.5%;
+  align-items: center;
+}
+.avatar img,
+.employer-logo img {
+  width: 50px;
+  height: auto;
+}
+.avatar p,
+.employer-logo p {
+  font-weight: 700;
+  font-size: 13px;
+  padding: 5% 0 0 0;
+}
+.attestant-title,
+.employment-title,
+.portfolio-title {
+  width: 100%;
+  padding: 0 0 0 5%;
+  line-height: 1.2em;
+}
+.attestant-title p:first-child,
+.employment-title p:first-child,
+.portfolio-title p:first-child {
+  font-weight: 700;
+  font-size: 16px;
+}
+.attestant-title p:last-child,
+.employment-title p:last-child,
+.portfolio-title p:last-child {
+  padding: 2.5% 0 0 0;
+  font-size: 12px;
+  font-style: italic;
+  color: #757575;
+}
+.testimony,
+.employment-duties {
+  padding: 2.5%;
+  font-size: 14px;
+  line-height: 1.5em;
+  overflow: auto;
+}
+.testimony {
+  text-align: justify;
+  text-justify: inter-character;
+}
+.dots {
+  text-align: center;
+  padding: 2.5% 0 2.5% 0;
+}
+
+/*=============================================
+=           PORTFOLIO SECTION STYLING        =
+=============================================*/
+.portfolio-img img {
+  width: 100%;
+  height: auto;
+}
+.portfolio-img {
+  padding: 2.5%;
+}
+.mySlides-portfolio {
+  height: 400px;
+}
+
+/*=============================================
+= CONTACT FORM AND CONTACT INFO SECTIONS CSS  =
+=============================================*/
+.pen {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  gap: 5%;
+}
+.pen img {
+  width: 100px;
+  height: auto;
+  order: 1;
+  padding: 0 0 0 5%;
+}
+.formcontainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5% 2.5% 0 2.5%;
+}
+.formcontainer h2,
+.formcontainer h3 {
+  color: #ffffff;
+  text-align: left;
+  font-size: 32px;
+}
+.formcontainer h3 {
+  padding: 0 0 5% 0;
+}
+.formcontainer h2 {
+  order: 2;
+  font-size: 2em;
+}
+.formcontainer form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  order: 1;
+  padding: 12.5% 0 0 0;
+}
+.formcontainer form input[type="submit"] {
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  border: none;
+  height: 50px;
+  text-align: center;
+  font-size: 1.5em;
+  padding: 0;
+  font-weight: 700;
+  border-radius: 0.25em;
+  outline-color: transparent;
+  cursor: pointer;
+  background: #ffffff7e;
+  color: #3d2112;
+  border-radius: 10px 0 10px 0;
+}
+.formcontainer form input[type="submit"]:hover {
+  background: #ffe04f;
+  color: #3d2112;
+  border-radius: 0 10px 0 10px;
+  transition: all 0.3s;
+}
+.formcontainer form input {
+  margin: 5% 5% 0 2%;
+  height: 50px;
+  border-radius: 10px 0 10px 0;
+  padding: 1em;
+  color: #333333;
+  font-weight: 500;
+}
+.formcontainer form input[type="text"]:focus,
+.formcontainer form input[type="text"]:hover,
+.formcontainer form textarea:focus,
+.formcontainer form textarea:hover {
+  border-radius: 0 10px 0 10px;
+  transition: all 0.3s;
+  background: #3d271a7e;
+  color: #ffffff;
+}
+.formcontainer form input::placeholder {
+  color: #808080;
+  font-weight: 700;
+}
+textarea {
+  margin: 5% 5% 0 2%;
+  padding: 1em;
+  height: 10em;
+  border-radius: 10px 0 10px 0;
+  color: #333333;
+  font-weight: 500;
+  resize: vertical;
+}
+.formcontainer form textarea::placeholder {
+  color: #808080;
+  font-weight: 700;
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  order: 2;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  padding: 15% 0 0 5%;
+}
+.socialmedia {
+  display: inline-block;
+  order: 1;
+  padding: 12.5% 0 25% 5%;
+}
+.contact-info p,
+.contact-info a {
+  padding: 0 0 5% 2.5%;
+  font-size: 1.2em;
+  color: #ffffff;
+}
+.contact-info i {
+  padding: 0 2.5% 0 0;
+  font-size: 1.25em;
+}
+.socialmedia i {
+  justify-self: flex-end;
+  color: #ffffff;
+}
+.socialmedia i:first-child {
+  font-size: 2em;
+  justify-self: flex-end;
+}
+.socialmedia a {
+  padding: 0 0 0 5%;
+  font-size: 24px;
+}
+
+/*=============================================
+=         RESUME PDF Download Button          =
+=============================================*/
+.resume-download-btn a {
+  order: 3;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  position: fixed; /* ! Position is used here for Nav purposes only */
+  transform: rotate(270deg);
+  bottom: 52.5px;
+  left: -55px;
+  font-size: 14px;
+  background: #e1d2a5;
+  color: #1c110b;
+  z-index: 1;
+  opacity: 0.5;
+  cursor: pointer;
+  height: max-content;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  outline-color: transparent;
+  text-decoration: none;
+}
+.resume-download-btn a:hover {
+  background: #1c110b;
+  color: #d6b865;
+  opacity: 0.8;
+}
+/*=============================================
+=            FORM ERROR MESSAGES              =
+=============================================*/
+.form-error {
+  margin: 5% 0 0 0;
+  padding: 1.5%;
+  width: max-content;
+  text-align: left;
+  background: #ff0000;
+  font-style: italic;
+  color: #ffffff;
+  font-size: 0.75em;
+  box-shadow: 1px 1px 1px #aaaaaa;
+  position: relative; /*! Approved by Warren __ Use of "Position" to visual aid the error message with little arrow  */
+  display: none;
+}
+.form-error::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #ff0000;
+  position: absolute; /*! Approved by Warren __ Use of "Position" to visual aid the error message with little arrow  */
+  top: -10px;
+}
+.empty-field-error {
+  background: #ffdddd;
+  border-style: dotted;
+  border-color: #ff0000;
+  border-width: 2px;
+  border-radius: 10px 0 10px 0;
+}
+
+/*=============================================
+=                 FOOTER                      =
+=============================================*/
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 2.5% 2.5% 0 2.5%;
+  margin: 0 2.5% 25% 2.5%;
+  color: #ffffff;
+  font-weight: 700;
+}
+footer > p {
+  font-size: 18px;
+}
+.icons-credit p {
+  margin: 1.5% 0 0 0;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+.icons-credit a {
+  text-decoration-color: #f6fa03;
+  color: #ffffff;
+}
+
+/*=============================================
+=            MEDIA QUERIES - TABLET           =
+=============================================*/
+@media only screen and (min-width: 600px) {
+  .main-wrapper {
+    margin: 7.5% 0 0 0;
+  }
+  header,
+  main,
+  .section,
+  .accordion-btn,
+  .int-experience img,
+  .slideshow-container,
+  footer,
+  .container .section-content {
+    max-width: 1080px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 55px;
+    font-weight: 900;
+  }
+  .about p,
+  .objective P,
+  .core-competencies ul,
+  .core-competencies p {
+    line-height: 1.5em;
+    font-size: 20px;
+  }
+  .sub-container p,
+  .sub-container ul {
+    font-size: 20px;
+  }
+  .sub-container img {
+    width: 100px;
+  }
+  .accordion-btn {
+    font-size: 24px;
+    margin: 0;
+  }
+  .container .section-content {
+    margin: 0;
+  }
+  .employment-duties ul {
+    font-size: 20px;
+  }
+  .avatar img,
+  .employer-logo img {
+    width: 100px;
+  }
+  .avatar p,
+  .employer-logo p {
+    font-size: 18px;
+  }
+  .mySlides,
+  .mySlides-emp,
+  .mySlides-portfolio {
+    height: 700px;
+  }
+  .attestant-title,
+  .employment-title,
+  .portfolio-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .attestant-title p:first-child,
+  .employment-title p:first-child,
+  .portfolio-title p:first-child {
+    font-size: 26px;
+    line-height: 1.3em;
+  }
+  .attestant-title p:last-child,
+  .employment-title p:last-child,
+  .portfolio-title p:last-child {
+    font-size: 18px;
+  }
+  .testimony,
+  .employment-duties {
+    font-size: 20px;
+  }
+  .sub-container .skill-level-container p {
+    font-size: 26px;
+    padding: 0 0 5% 0;
+  }
+  .advanced-level,
+  .intermediate-level,
+  .beginner-level {
+    font-size: 20px;
+  }
+  .icons-credit p {
+    margin: 1.5% 0 0 0;
+    font-size: 14px;
+    color: #ffffff;
+  }
+  .resume-download-btn a {
+    transform: rotate(270deg);
+    bottom: 60px;
+    left: -60px;
+    font-size: 16px;
+  }
+  footer {
+    margin: 0 0 5% 0;
+  }
+  footer > p {
+    font-size: 22px;
+  }
+  .icons-credit p {
+    margin: 1%;
+    font-size: 12px;
+  }
+  .contact-info {
+    padding: 8% 0 5% 5%;
+  }
+  .contact-info a,
+  .contact-info p {
+    padding: 0 0 2.5% 0;
+    margin: 0;
+    font-size: 1.5em;
+  }
+  .socialmedia {
+    padding: 5% 0 12.5% 5%;
+  }
+  .popupbtn {
+    font-size: 30px;
+    padding: 8px;
+  }
+  .formcontainer h2,
+  .formcontainer h3 {
+    color: #ffffff;
+    text-align: left;
+    font-size: 55px;
+    width: 100%;
+  }
+  .socialmedia a {
+    font-size: 30px;
+  }
+  .contact-info p,
+  .contact-info a {
+    font-size: 26px;
+    margin-left: 5%;
+  }
+  #contact-form {
+    padding-left: 20%;
+  }
+  .pen img {
+    padding-left: 0;
+  }
+  form textarea,
+  form input {
+    width: 70%;
+  }
+  form textarea {
+    height: 15em;
+  }
+  .formcontainer form input[type="submit"] {
+    font-size: 30px;
+  }
+  .skill-level-container {
+    padding-left:5%;
+  }
+}
+/*=============================================
+=      MEDIA QUERIES - DESKTOP / LAPTOP       =
+=============================================*/
+@media only screen and (min-width: 800px) {
+  h1 {
+    font-size: 70px;
+  }
+  .core-competencies ul {
+    line-height: 1.5em;
+    font-size: 24px;
+  }
+  .section-content p,
+  .section-content ul,
+  .sub-container p,
+  .sub-container ul {
+    font-size: 28px;
+  }
+  .sub-container img {
+    width: 200px;
+  }
+  .accordion-btn {
+    font-size: 38px;
+    padding: 1% 2% 1% 2%;
+  }
+  .employment-duties ul {
+    padding: 0;
+    line-height: 1.5em;
+    font-size: 24px;
+  }
+  .avatar img,
+  .employer-logo img {
+    width: 200px;
+  }
+  .avatar p,
+  .employer-logo p {
+    font-size: 26px;
+  }
+  .attestant-title p:first-child,
+  .employment-title p:first-child,
+  .portfolio-title p:first-child {
+    font-size: 32px;
+    line-height: 1.3em;
+  }
+  .attestant-title p:last-child,
+  .employment-title p:last-child,
+  .portfolio-title p:last-child {
+    font-size: 24px;
+  }
+  .sub-container .skill-level-container p {
+    font-size: 30px;
+    padding: 0 0 5% 0;
+  }
+  .advanced-level,
+  .intermediate-level,
+  .beginner-level {
+    font-size: 20px;
+  }
+  .icons-credit p {
+    margin: 1.5% 0 0 0;
+    font-size: 14px;
+    color: #ffffff;
+  }
+  .resume-download-btn a {
+    transform: rotate(270deg);
+    bottom: 85px;
+    left: -70px;
+    font-size: 24px;
+  }
+  footer {
+    margin: 10% 0 5% 0;
+  }
+  footer > p {
+    font-size: 22px;
+  }
+  .icons-credit p {
+    margin: 1.5%;
+  }
+  .dot,
+  .dot-emp,
+  .dot-emp {
+    width: 25px;
+    height: 25px;
+  }
+  .prev,
+  .next,
+  .prev-emp,
+  .next-emp,
+  .prev-portfolio,
+  .next-portfolio {
+    font-size: 30px;
+    padding: 15px;
+  }
+  .floating-hello {
+    display: block;
+    position: absolute; /*! Use of "Position" permitted per assignment guidelines in nav  */
+    top: 20px;
+    left: 5px;
+    opacity: 0.8;
+    width: auto;
+    max-width: 250px;
+    height: auto;
+    opacity: .65;
+  }
+  .floating-cup {
+    display: block;
+    position: absolute; /*! Use of "Position" permitted per assignment guidelines in nav  */
+    top: 450px;
+    right: 25px;
+    opacity: 0.8;
+    width: auto;
+    max-width: 250px;
+    height: auto;
+    opacity: .75;
+  }
+  .mySlides,
+  .mySlides-emp,
+  .mySlides-portfolio {
+    height: 1080px;
+  }
+  .formcontainer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .formcontainer form {
+    order: 2;
+  }
+  .contact {
+    order: 1;
+  }
+  #contact-form {
+    padding: 2.5% 5% 0 5%;
+    width: 50%;
+  }
+  .contact {
+    width: 50%;
+  }
+  .formcontainer form input,
+  .formcontainer form textarea {
+    width: 100%;
+  }
+  .formcontainer h2,
+  .formcontainer h3 {
+    font-size: 45px;
+    width: 100%;
+  }
+  .socialmedia a {
+    font-size: 30px;
+  }
+  .contact-info p,
+  .contact-info a {
+    font-size: 28px;
+    margin-left: 5%;
+  }
+  .container {
+    margin: 3.5%;
+  }
+}
