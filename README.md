@@ -14,6 +14,8 @@ Trello board: https://trello.com/b/AFdr0k2a
 
 GitHub Repo: https://github.com/TECHCareers-by-Manpower/milestone-1-front-end-resume-w-contact-form-3mrfouad.git
 
+Live: https://3mrfouad.github.io/myresume/
+
 #Resources: The following we blinks has been used as research resources during the project execution. If any code snippet is used, a citation would be added to the corresponding code.
 
 https://www.w3schools.com/css/css3_transitions.asp
